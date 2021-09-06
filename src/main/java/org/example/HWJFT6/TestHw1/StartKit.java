@@ -1,4 +1,4 @@
-package org.example.HWJFT6;
+package org.example.HWJFT6.TestHw1;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

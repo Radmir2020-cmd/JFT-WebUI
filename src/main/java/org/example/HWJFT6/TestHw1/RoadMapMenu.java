@@ -1,2 +1,28 @@
-package org.example.HWJFT6;public class RoadMapMenu {
+package org.example.HWJFT6.TestHw1;
+
+import org.example.lesson6.ExpensesSubMenu;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
+
+public class RoadMapMenu extends StartKit {
+
+    public RoadMapMenu(WebDriver driver) {
+        super(driver);
+    }
+    @FindBy(xpath = "//ul[@class='nav nav-multilevel main-menu']/li")
+    public List<WebElement> navigationMenuItems;
+
+    public ExpensesSubMenu openRoadMapMenuItems(String menuName) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(navigationMenuItems.stream()
+                .filter(element -> element.getText().equals(menuName))
+                .findFirst().get()).perform();
+        return new ExpensesSubMenu(driver);
+    }
+
+
 }
